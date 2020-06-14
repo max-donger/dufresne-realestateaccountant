@@ -116,6 +116,7 @@ function toggleSideMenu(){
   }
 }
 
+// Talk to the Crawler
 function helloWorld() {
   const { ConnectionBuilder } = require("electron-cgi");
 

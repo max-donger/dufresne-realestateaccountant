@@ -37,23 +37,4 @@
     <div id="note">
         Notitie 
     </div>
-
-    <div id="listWithHandle" class="list-group" ng-controller="notesItemsController as ctrl">
-        <div ng-repeat="item in ctrl.items">
-            <span class="glyphicon glyphicon-move" style="color:blue" aria-hidden="true"></span>
-            <input type="text" ng-model="item.position" aria-labelledby="select_{{$index}}" >
-            <input type="text" ng-model="item.reference" aria-labelledby="select_{{$index}}" />
-            <select ng-model="item.changetype" aria-label="Item method" id="select_{{$index}}">
-                <option>Toegevoegd</option>
-                <option>Verbeterd</option>
-                <option>Fout opgelost</option>
-                <option>Informatie</option>
-                <option>Module</option>
-            </select>
-            <input type="text" ng-model="item.value" aria-labelledby="select_{{$index}}" />
-            <input type="text" ng-model="item.onHoverValue" aria-labelledby="select_{{$index}}" />
-            <span ng-click="ctrl.removeItem(item)" class="glyphicon glyphicon-remove" style="color:red" aria-hidden="true"></span>
-        </div>
-        <span ng-click="ctrl.addItem()" class="glyphicon glyphicon-plus" style="color:green" aria-hidden="true"></span>
-    </div>   
 </div>
