@@ -1,18 +1,9 @@
-# gandalf-releasecreator
-Gandalf is the Release Creator
+# dufresne-realestateaccountant
+Dufresne is the dashboard for privateer-realestatefinder
 
-The names of the repositories are based on the Wizards from Lord of the Rings.
-https://lotr.fandom.com/wiki/Wizards
+The names of the repositories are based on the pirates from Black Sails.
+https://black-sails.fandom.com/wiki/Black_Sails_Wiki
 
-Saruman - Installer / Updater
-
-Gandalf - Update creator / Release note creator
-
-Radagast - Health Monitor
-
-Alatar - Winium
-
-Pallando - Selenium
 
 --
 
@@ -21,5 +12,6 @@ Angular
 Angular-Route
 Bootstrap
 Electron
+Electron-cgi
 Node.js
 Sortablejs
