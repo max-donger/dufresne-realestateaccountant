@@ -115,3 +115,25 @@ function toggleSideMenu(){
     sidemenuZ.style.display = 'none';
   }
 }
+
+function helloWorld() {
+  const { ConnectionBuilder } = require("electron-cgi");
+
+  let connection = new ConnectionBuilder()
+  .connectTo("dotnet", "run", "--project", "../rackham-realestatecrawler")
+  .build();
+
+  connection.onDisconnect = () => {
+  console.log("Lost connection to the .Net process");
+  };
+
+  connection.send("greeting", "Max", (error, response) => {
+  if (error) {
+  console.log(error); //serialized exception from the .NET handler
+  return;
+  }
+
+  console.log(response); // will print "Hello Max!"
+  connection.close();
+  });
+}
