@@ -1,0 +1,59 @@
+<!-- Call to renderer.js on initialize so scripts can be loaded -->
+<div ng-init="initialize()"></div>
+<!-- Top nav bar -->
+<nav class="navbar my-lg-0">
+    <div class="">
+        <button class="applicatie btn btn-primary my-2 my-sm-0" id="applicatieDropDown" onclick="applicatieDropDown()">Applicatie</button>
+        <div id="applicatieDropdown" class="dropdown-content">
+        </div>
+    </div>
+    <div class="">
+        <button class="versie btn btn-secondary my-2 my-sm-0" id="versieDropDown" onclick="versieDropDown()">Versie</button>
+        <div id="versieDropdown" class="dropdown-content">
+        </div>
+    </div>
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+</nav>
+
+<!-- Content -->
+<div id="content">
+    <h1>Notes</h1>
+    
+    <h2>Instellingen</h2>
+    <form id="input">
+        <label for="i_version">Versie</label><input id="i_version" type="text"></br>
+        <label for="i_date">Datum</label><input id="i_date" type="text"></br>
+        <label for="i_platform">Platform</label><input id="i_platform" type="text"></br>
+        <label for="i_isNew">Nieuw</label><input id="i_isNew" type="checkbox"></br>
+    </form>
+
+    <h2>Voorbeeld:</h2>
+    <div id="output">
+        Versie <div id="o_version" class="output">[versie]</div> van <div id="o_date" class="output">[datum]</div> <div id="o_platform" class="output">[platform]</div>
+    </div>
+    <div id="note">
+        Notitie 
+    </div>
+
+    <div id="listWithHandle" class="list-group" ng-controller="notesItemsController as ctrl">
+        <div ng-repeat="item in ctrl.items">
+            <span class="glyphicon glyphicon-move" style="color:blue" aria-hidden="true"></span>
+            <input type="text" ng-model="item.position" aria-labelledby="select_{{$index}}" >
+            <input type="text" ng-model="item.reference" aria-labelledby="select_{{$index}}" />
+            <select ng-model="item.changetype" aria-label="Item method" id="select_{{$index}}">
+                <option>Toegevoegd</option>
+                <option>Verbeterd</option>
+                <option>Fout opgelost</option>
+                <option>Informatie</option>
+                <option>Module</option>
+            </select>
+            <input type="text" ng-model="item.value" aria-labelledby="select_{{$index}}" />
+            <input type="text" ng-model="item.onHoverValue" aria-labelledby="select_{{$index}}" />
+            <span ng-click="ctrl.removeItem(item)" class="glyphicon glyphicon-remove" style="color:red" aria-hidden="true"></span>
+        </div>
+        <span ng-click="ctrl.addItem()" class="glyphicon glyphicon-plus" style="color:green" aria-hidden="true"></span>
+    </div>   
+</div>

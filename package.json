@@ -1,0 +1,26 @@
+{
+  "name": "gandalf-release-creator",
+  "version": "1.0.0",
+  "description": "A minimal Electron application for creating or updating releases and release notes",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/max-donger/gandalf-releasecreator",
+  "keywords": [
+    "Electron",
+    "release"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^7.3.0"
+  },
+  "dependencies": {
+    "angular": "^1.7.9",
+    "angular-route": "^1.7.9",
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.5.1",
+    "sortablejs": "^1.10.2"
+  }
+}
