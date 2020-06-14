@@ -1,12 +1,12 @@
 {
-  "name": "gandalf-release-creator",
+  "name": "dufresne-real-estate-accountant",
   "version": "1.0.0",
-  "description": "A minimal Electron application for creating or updating releases and release notes",
+  "description": "A minimal Electron application for viewing real estate",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/max-donger/gandalf-releasecreator",
+  "repository": "https://github.com/max-donger/dufresne-realestateaccountant",
   "keywords": [
     "Electron",
     "release"
