@@ -1,9 +1,16 @@
+<!-- Call to renderer.js on initialize so scripts can be loaded -->
+<div ng-init="initialize()"></div>
+
 <!-- Top nav bar -->
 <nav class="navbar">
-    <ul class="navbar-nav">
-        <li><a href="#!NOPAGEYET">Tab 1</a></li>
-        <li><a href="#!NOPAGEYET">Tab 2</a></li>
-    </ul>
+    <div class="">
+        <button class="btn btn-secondary my-2 my-sm-0" id="connectionStatus" onclick="connectionStatus()">Status</button>
+    </div>
+    <div id="crawlerConnectionStatusTooltip" class="my-2 my-lg-0" title="Unknown">
+        <svg height="50" width="50">
+            <circle id="crawlerConnectionStatusIcon" cx="25" cy="25" r="10" stroke="grey" stroke-width="3" fill="grey"></circle>
+        </svg>
+    </div>
 </nav>
 
 <!-- Content -->
@@ -22,6 +29,16 @@
         <input type="text" id="fname" name="fname" value="TibiaMMO">
         <button class="btn btn-secondary my-2 my-sm-0" id="startCrawl" onclick="startCrawl()">Search</button>
         <button class="btn btn-secondary my-2 my-sm-0" id="stopCrawl" onclick="stopCrawl()">Stop</button>
+        <button class="btn btn-secondary my-2 my-sm-0" id="startCrawl" onclick="getLatestCrawl()">GetLatestCrawl</button>
+        
+
+        <h2>Instellingen</h2>
+        <form id="input">
+            <label for="i_version">Versie</label><input id="i_version" type="text"></br>
+            <label for="i_date">Datum</label><input id="i_date" type="text"></br>
+            <label for="i_platform">Platform</label><input id="i_platform" type="text"></br>
+            <label for="i_isNew">Nieuw</label><input id="i_isNew" type="checkbox"></br>
+        </form>
     </div>
 
     

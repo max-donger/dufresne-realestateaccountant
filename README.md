@@ -15,3 +15,16 @@ Electron
 Electron-cgi
 Node.js
 Sortablejs
+
+--
+
+# Wensen
+Prijsbereik (bijv. 250k - 350k)
+Grootte (bijv 100+ vierkante meter)
+Locatie (Bijv IJsselstein > Vreeswijk > De Meern > Nieuwegein > Woerden > Maarssen)
+Bronnen (Makelaar, en dan koppelen aan website, facebook api, twitter api)
+Alert (geef een telefoon of desktop notificatie )
+
+# Funda
+search-result-price         = prijs
+search-result-info-small    = oude prijs
