@@ -42,7 +42,7 @@ function connectionStatusIsOk(value) {
   }
 }
 
-// Start the crawl
+// Request the latest crawl
 function getLatestCrawl() {
   connection.on('show-posts', posts => {
   console.clear();    
@@ -51,7 +51,7 @@ function getLatestCrawl() {
   }
   posts.forEach(post => {
       // Log it  
-      console.log(`${post.title} ${post.upvoteCount}↑ (${post.url})\n`);
+      console.log(`${post.title} ${post.upvoteCount} (${post.url})\n`);
 
       // Declare the fields
       title = document.getElementById('i_version');
