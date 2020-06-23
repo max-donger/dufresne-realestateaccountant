@@ -3,15 +3,13 @@
 <!-- Top nav bar -->
 <nav class="navbar my-lg-0">
     <div class="">
-        <button class="applicatie btn btn-primary my-2 my-sm-0" id="applicatieDropDown" onclick="applicatieDropDown()">Applicatie</button>
-        <div id="applicatieDropdown" class="dropdown-content">
-        </div>
+        <button class="btn btn-primary my-2 my-sm-0" id="getAllSpiders" onclick="getAllSpiders()">GetAllSpiders</button>
     </div>
-    <div class="">
+    <!--div class="">
         <button class="versie btn btn-secondary my-2 my-sm-0" id="versieDropDown" onclick="versieDropDown()">Versie</button>
         <div id="versieDropdown" class="dropdown-content">
         </div>
-    </div>
+    </div-->
     <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
@@ -20,21 +18,18 @@
 
 <!-- Content -->
 <div id="content">
-    <h1>Notes</h1>
-    
-    <h2>Instellingen</h2>
-    <form id="input">
-        <label for="i_version">Versie</label><input id="i_version" type="text"></br>
-        <label for="i_date">Datum</label><input id="i_date" type="text"></br>
-        <label for="i_platform">Platform</label><input id="i_platform" type="text"></br>
-        <label for="i_isNew">Nieuw</label><input id="i_isNew" type="checkbox"></br>
-    </form>
-
-    <h2>Voorbeeld:</h2>
-    <div id="output">
-        Versie <div id="o_version" class="output">[versie]</div> van <div id="o_date" class="output">[datum]</div> <div id="o_platform" class="output">[platform]</div>
-    </div>
-    <div id="note">
-        Notitie 
+    <h1>Spiders</h1>
+    <div id="spiderGrid" class="container">
+        <div class="row">
+            <div class="col-sm">
+            Key
+            </div>
+            <div class="col-sm">
+            Name
+            </div>
+            <div class="col-sm">
+            Active
+            </div>
+        </div>
     </div>
 </div>

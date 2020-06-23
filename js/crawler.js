@@ -1,10 +1,3 @@
-// Start the connection
-const { ConnectionBuilder } = require("electron-cgi");
-
-let connection = new ConnectionBuilder()
-  .connectTo("dotnet", "run", "--project", "../rackham-realestatecrawler")
-  .build();
-
 function connectionStatusHandler() {
   console.log('Connection status handler is on');
   var checkFunda = setInterval(checkConnectionStatus, 5000);

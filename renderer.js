@@ -11,9 +11,16 @@ var app = angular.module('myApp', ['ngRoute']);
 app.controller('dashboardController', function($scope){
   $scope.initialize = function () {
       console.log("Loaded dashboardController");
-      crawlSource = "TibiaMMO";
-      getLatestCrawl(crawlSource);
-      connectionStatusHandler();
+      // crawlSource = "TibiaMMO";
+      // getLatestCrawl(crawlSource);
+      // connectionStatusHandler();
+  }
+ });
+
+ // Load controller for notes
+app.controller('notesController', function($scope){
+  $scope.initialize = function () {
+      console.log("Loaded notesController");
   }
  });
 
@@ -29,7 +36,8 @@ app.config(function($routeProvider){
       controller: 'dashboardController'
   })
   .when('/notes', {
-      templateUrl: 'sections/notes.html'
+      templateUrl: 'sections/notes.html',
+      controller: 'notesController'
   })
   .when('/support', {
     templateUrl: 'sections/support.html'
