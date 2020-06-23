@@ -10,14 +10,18 @@ function getAllSpiders() {
     });
 
 function getAllSpidersReturn(spiders) {
+  // Start counting from 1
+  spiderCount = 1
+
   if (spiders == null){
-    console.log('No results...');
+    // TODO: Hier nog een foutmelding tonen aan de gebruiker?
+    console.log('Geen resultaten...');
   }
-  console.log(spiders);
+  
+  // TODO: This is set outside the forEach so it doesn't get reset, but maybe I can put it in the forEach?
   
   spiders.forEach(spider => {
     // Define
-    i = 0
     spiderGrid = document.getElementById('spiderGrid');
     var addRow = document.createDocumentFragment();
     var newRow = document.createElement('div');
@@ -26,17 +30,17 @@ function getAllSpidersReturn(spiders) {
     var newColumnActive = document.createElement('div');
 
     // Set
-    newRow.id = 'spider'+i;
+    newRow.id = 'spider'+spiderCount;
     newRow.className = 'row';
-    newColumnKey.id = 'column'+i;
+    newColumnKey.id = 'column1';
     newColumnKey.className = 'col-sm';
     newColumnKey.innerHTML = spider.key;
 
-    newColumnName.id = 'column'+(i+1);
+    newColumnName.id = 'column2';
     newColumnName.className = 'col-sm';
     newColumnName.innerHTML = spider.name;
 
-    newColumnActive.id = 'column'+(i+2);
+    newColumnActive.id = 'column3';
     newColumnActive.className = 'col-sm';
     newColumnActive.innerHTML = "placeholder";
 
@@ -46,12 +50,12 @@ function getAllSpidersReturn(spiders) {
 
     addRow.appendChild(newRow);
     document.getElementById('spiderGrid').appendChild(addRow);
-    i++
+    spiderCount++
   });
 }
   
   connection.onDisconnect = () => {
-    console.log("Dufresne: Connection closed.");
+    console.log("Dufresne: Connectie verbroken.");
     connectionStatusIsOk(false);
   };
 }

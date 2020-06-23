@@ -18,9 +18,9 @@ app.controller('dashboardController', function($scope){
  });
 
  // Load controller for notes
-app.controller('notesController', function($scope){
+app.controller('estateagenciesController', function($scope){
   $scope.initialize = function () {
-      console.log("Loaded notesController");
+      console.log("Loaded estateagenciesController");
   }
  });
 
@@ -35,9 +35,9 @@ app.config(function($routeProvider){
       templateUrl: 'sections/dashboard.html',
       controller: 'dashboardController'
   })
-  .when('/notes', {
-      templateUrl: 'sections/notes.html',
-      controller: 'notesController'
+  .when('/estateagencies', {
+      templateUrl: 'sections/estateagencies.html',
+      controller: 'estateagenciesController'
   })
   .when('/support', {
     templateUrl: 'sections/support.html'
