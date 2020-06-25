@@ -65,6 +65,7 @@ function startSpiderStatusChecker() {
 
 function getSpiderStatus() {
   response = 0;
+  console.log('Checking one spider status...');
   connection.send("get-one-spider-status", "Spider A", (err, response) => {
     if (err) {
       console.log(err);
