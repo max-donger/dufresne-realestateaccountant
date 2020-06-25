@@ -30,18 +30,18 @@ function getAllSpidersReturn(spiders) {
 
     // Set
     newRow.id = 'spider'+spiderCount;
-    newRow.className = 'row';
+    newRow.className = 'row d-flex justify-content-center';
     newColumnKey.id = 'column1';
-    newColumnKey.className = 'col-sm';
+    newColumnKey.className = 'col-sm-4 d-flex justify-content-center';
     newColumnKey.innerHTML = spider.key;
 
     newColumnName.id = 'column2';
-    newColumnName.className = 'col-sm';
+    newColumnName.className = 'col-sm-4 d-flex justify-content-center';
     newColumnName.innerHTML = spider.name;
 
     newColumnActive.id = 'column3';
-    newColumnActive.className = 'col-sm';
-    newColumnActive.innerHTML = "placeholder";
+    newColumnActive.className = 'col-sm-4 d-flex justify-content-center';
+    newColumnActive.innerHTML = "<div id='spiderStatusTooltip' class='my-2 my-lg-0' title='Uitgeschakeld'><svg height='30' width='50'><circle id='spiderStatusIcon' cx='25' cy='12' r='10' stroke='grey' stroke-width='3' fill='grey'></circle></svg></div>";
 
     newRow.appendChild(newColumnKey);
     newRow.appendChild(newColumnName);
@@ -51,42 +51,47 @@ function getAllSpidersReturn(spiders) {
     document.getElementById('spiderGrid').appendChild(addRow);
     spiderCount++
   });
+
+  // Start checking the status for each spider
+  startSpiderStatusChecker();
 }
   
-function connectionStatusHandler() {
-  console.log('Connection status handler is on');
-  var checkFunda = setInterval(checkConnectionStatus, 5000);
+function startSpiderStatusChecker() {
+  console.log('Getting spider status...');
+  getSpiderStatus();
+  console.log('Spider status checker is now enabled. Interval = 2500');
+  setInterval(getSpiderStatus, 2500);
 }
 
-function checkConnectionStatus() {
+function getSpiderStatus() {
   response = 0;
-  connection.send("get-spider-status", "Spider A", (err, response) => {
+  connection.send("get-one-spider-status", "Spider A", (err, response) => {
     if (err) {
       console.log(err);
-      connectionStatusIsOk(0);
+      spiderStatusIsOk(0);
       return;
     }
-    connectionStatusIsOk(response);
+    spiderStatusIsOk(response);
   });
 }
 
-function connectionStatusIsOk(value) {
-  connIcon = document.getElementById('crawlerConnectionStatusIcon');
-  connTooltip = document.getElementById('crawlerConnectionStatusTooltip');
+function spiderStatusIsOk(value) {
+  spiderStatusIcon = document.getElementById('spiderStatusIcon');
+  spiderStatusTooltip = document.getElementById('spiderStatusTooltip');
   if (value === 1) {
-    connTooltip.title='Connected';
-    connIcon.style.stroke='lightgreen';
-    connIcon.style.fill='lightgreen';
+    spiderStatusTooltip.title='Actief';
+    spiderStatusIcon.style.stroke='lightgreen';
+    spiderStatusIcon.style.fill='lightgreen';
   }
   else if (value === 2) {
-    connTooltip.title='Disconnected';
-    connIcon.style.stroke='red';
-    connIcon.style.fill='red';
+    spiderStatusTooltip.title='Niet actief';
+    spiderStatusIcon.style.stroke='red';
+    spiderStatusIcon.style.fill='red';
   }
   else {
     // TODO: kan dit niet .stroke .fill
-    connTooltip.title='Unknown';
-    connIcon.style.stroke='grey';
-    connIcon.style.fill='grey';
+    spiderStatusTooltip.title='Uitgeschakeld';
+    spiderStatusIcon.style.stroke='grey';
+    spiderStatusIcon.style.fill='grey';
   }
 }
