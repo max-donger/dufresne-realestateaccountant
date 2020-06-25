@@ -14,7 +14,6 @@ Bootstrap
 Electron
 Electron-cgi
 Node.js
-Sortablejs
 
 --
 
@@ -25,6 +24,6 @@ Locatie (Bijv IJsselstein > Vreeswijk > De Meern > Nieuwegein > Woerden > Maarss
 Bronnen (Makelaar, en dan koppelen aan website, facebook api, twitter api)
 Alert (geef een telefoon of desktop notificatie )
 
-# Funda
+# F nda
 search-result-price         = prijs
 search-result-info-small    = oude prijs
