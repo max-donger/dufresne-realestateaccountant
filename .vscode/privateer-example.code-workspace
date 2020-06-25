@@ -1,0 +1,30 @@
+{
+	"folders": [
+		{
+			// User Interface
+			"name": "Dufresne UI",
+			"path": "..\\Electron\\source\\repos\\dufresne-realestateaccountant"
+		},
+		{	// Crawler
+			"name": "Rackham Crawler",
+			"path": "..\\Electron\\source\\repos\\rackham-realestatecrawler"
+		}
+	],
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+		],
+		"compounds": [
+			{
+				"name": "Launch Dufresne UI and Rackham Crawler",
+				"configurations": [
+					"Electron: Main",
+					"Launch Rackham (console)"
+				]
+			}
+		]
+	},
+	"settings": {
+			"dotnet-test-explorer.testProjectPath": "**/*Tests.csproj"
+	}
+}

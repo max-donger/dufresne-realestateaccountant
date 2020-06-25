@@ -90,7 +90,6 @@ function spiderStatusIsOk(value) {
     spiderStatusIcon.style.fill='red';
   }
   else {
-    // TODO: kan dit niet .stroke .fill
     spiderStatusTooltip.title='Uitgeschakeld';
     spiderStatusIcon.style.stroke='grey';
     spiderStatusIcon.style.fill='grey';
