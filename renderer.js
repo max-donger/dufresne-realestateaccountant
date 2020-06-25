@@ -11,13 +11,11 @@ var app = angular.module('myApp', ['ngRoute']);
 app.controller('dashboardController', function($scope){
   $scope.initialize = function () {
       console.log("Loaded dashboardController");
-      // crawlSource = "TibiaMMO";
-      // getLatestCrawl(crawlSource);
       // connectionStatusHandler();
   }
  });
 
- // Load controller for notes
+ // Load controller for estateagencies
 app.controller('estateagenciesController', function($scope){
   $scope.initialize = function () {
       console.log("Loaded estateagenciesController");

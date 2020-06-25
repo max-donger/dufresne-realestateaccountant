@@ -1,9 +1,14 @@
+<!-- Call to renderer.js on initialize so scripts can be loaded -->
+<div ng-init="initialize()"></div>
 <!-- Top nav bar -->
-<nav class="navbar">
-    <ul class="navbar-nav">
-        <li><a href="#!NOPAGEYET">Tab 1</a></li>
-        <li><a href="#!NOPAGEYET">Tab 2</a></li>
-    </ul>
+<nav class="navbar my-lg-0">
+    <div class="">
+        <button class="btn btn-primary my-2 my-sm-0" id="placeholder">placeholder</button>
+    </div>
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Wat is uw vraag?" aria-label="Zoeken">
+        <button class="btn btn-success my-2 my-sm-0" type="submit">Zoeken</button>
+    </form>
 </nav>
     
 <!-- Content -->

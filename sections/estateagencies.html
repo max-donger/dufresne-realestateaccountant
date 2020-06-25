@@ -5,15 +5,11 @@
     <div class="">
         <button class="btn btn-primary my-2 my-sm-0" id="getAllSpiders" onclick="getAllSpiders()">GetAllSpiders</button>
     </div>
-    <!--div class="">
-        <button class="versie btn btn-secondary my-2 my-sm-0" id="versieDropDown" onclick="versieDropDown()">Versie</button>
-        <div id="versieDropdown" class="dropdown-content">
-        </div>
-    </div-->
-    <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    <div id="crawlerConnectionStatusTooltip" class="my-2 my-lg-0" title="Unknown">
+        <svg height="50" width="50">
+            <circle id="crawlerConnectionStatusIcon" cx="25" cy="25" r="10" stroke="grey" stroke-width="3" fill="grey"></circle>
+        </svg>
+    </div>
 </nav>
 
 <!-- Content -->

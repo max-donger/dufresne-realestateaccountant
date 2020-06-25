@@ -1,13 +1,14 @@
 // Request the latest crawl
 function getAllSpiders() {
-    console.log("Getting all spiders...");
-    connection.send("get-all-spiders", (err, response) => {
-      if (err) {
-        console.log(err);
-        return;
-      }
-      getAllSpidersReturn(response);
-    });
+  console.log("Getting all spiders...");
+  connection.send("get-all-spiders", (err, response) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    getAllSpidersReturn(response);
+  })
+}
 
 function getAllSpidersReturn(spiders) {
   // Start counting from 1
@@ -15,10 +16,8 @@ function getAllSpidersReturn(spiders) {
 
   if (spiders == null){
     // TODO: Hier nog een foutmelding tonen aan de gebruiker?
-    console.log('Geen resultaten...');
+    console.log('Geen spiders gevonden...');
   }
-  
-  // TODO: This is set outside the forEach so it doesn't get reset, but maybe I can put it in the forEach?
   
   spiders.forEach(spider => {
     // Define
@@ -54,8 +53,40 @@ function getAllSpidersReturn(spiders) {
   });
 }
   
-  connection.onDisconnect = () => {
-    console.log("Dufresne: Connectie verbroken.");
-    connectionStatusIsOk(false);
-  };
+function connectionStatusHandler() {
+  console.log('Connection status handler is on');
+  var checkFunda = setInterval(checkConnectionStatus, 5000);
+}
+
+function checkConnectionStatus() {
+  response = 0;
+  connection.send("get-spider-status", "Spider A", (err, response) => {
+    if (err) {
+      console.log(err);
+      connectionStatusIsOk(0);
+      return;
+    }
+    connectionStatusIsOk(response);
+  });
+}
+
+function connectionStatusIsOk(value) {
+  connIcon = document.getElementById('crawlerConnectionStatusIcon');
+  connTooltip = document.getElementById('crawlerConnectionStatusTooltip');
+  if (value === 1) {
+    connTooltip.title='Connected';
+    connIcon.style.stroke='lightgreen';
+    connIcon.style.fill='lightgreen';
+  }
+  else if (value === 2) {
+    connTooltip.title='Disconnected';
+    connIcon.style.stroke='red';
+    connIcon.style.fill='red';
+  }
+  else {
+    // TODO: kan dit niet .stroke .fill
+    connTooltip.title='Unknown';
+    connIcon.style.stroke='grey';
+    connIcon.style.fill='grey';
+  }
 }
